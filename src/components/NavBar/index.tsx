@@ -20,11 +20,13 @@ export function NavBar({
   const [selectedOption, setSelectedOption] = useState<number>(1);
 
   function handleOptionOne() {
+    // when clicking on the first nav-bar option, call its function and change selection style.
     clickOptOne();
     setSelectedOption(1);
   }
 
   function handleOptionTwo() {
+    // when clicking on the second nav-bar option, call its function and change selection style.
     clickOptTwo();
     setSelectedOption(2);
   }
