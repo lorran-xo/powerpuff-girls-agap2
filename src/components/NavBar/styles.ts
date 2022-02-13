@@ -5,30 +5,35 @@ export interface ItemProps {
 }
 
 export const Container = styled.div`
-  width: 100%;
-  margin: 10px;
+  margin: 1%;
 
   flex-direction: row;
   align-items: center;
 `;
 
-export const ItemWrapper = styled.button<ItemProps>`
+export const ItemWrapper = styled.span`
   cursor: pointer;
 
   padding: 3px;
-  border-width: 1px;
-  border-radius: 4px;
   margin-left: 10px;
   margin-top: 5px;
 
-  background-color: ${(props) => (props.selected ? '#add8e6' : '#e5e4e2')};
-
   font-size: 10px;
-  color: #4d4f50;
 `;
 
-export const OptionText = styled.span`
+export const OptionText = styled.span<ItemProps>`
   font-weight: 700;
+  font-size: 15px;
+
+  color: ${(props) => (props.selected ? '#ff9b9d' : '#ffff')};
+
+  // double clicking on the navbar was selecting the options and making them weird so those below are to disable selections:
+
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed, currently supported by Chrome, Edge, Opera and Firefox */
 `;
 
 export const IconWrapper = styled.div`

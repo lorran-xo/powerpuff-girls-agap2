@@ -6,7 +6,7 @@ import TopNavBar from './pages/TopNavBar';
 export default function App() {
   return (
     <Router>
-      {/* LOGO */}
+      {/* <Logo /> */}
       <TopNavBar />
       <Routes />
     </Router>
