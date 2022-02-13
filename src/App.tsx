@@ -4,7 +4,11 @@ export default function App() {
   return (
     <div>
       <p>
-        <Button label="Button" onClick={() => console.log('AEW')} />
+        <Button
+          label="Button"
+          color="primary"
+          onClick={() => console.log('AEW')}
+        />
       </p>
     </div>
   );
