@@ -1,9 +1,6 @@
 import { useState } from 'react';
-// import { MdHome } from 'react-icons/md';
-// import { BsInfoCircleFill } from 'react-icons/bs';
 
 import { Container, ItemWrapper, OptionText } from './styles';
-// IconWrapper
 
 interface NavProps {
   titleOptionOne: string;
@@ -35,19 +32,12 @@ export function NavBar({
   return (
     <Container data-testid="navbar-comp">
       <ItemWrapper onClick={() => handleOptionOne()}>
-        {/* <IconWrapper>
-          <MdHome />
-        </IconWrapper> */}
         <OptionText selected={selectedOption === 1}>
           {titleOptionOne}
         </OptionText>
       </ItemWrapper>
 
       <ItemWrapper onClick={() => handleOptionTwo()}>
-        {/* <IconWrapper>
-          <BsInfoCircleFill />
-        </IconWrapper> */}
-
         <OptionText selected={selectedOption === 2}>
           {titleOptionTwo}
         </OptionText>

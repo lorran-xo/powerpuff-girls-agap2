@@ -36,10 +36,6 @@ export const OptionText = styled.span<ItemProps>`
   user-select: none; /* Non-prefixed, currently supported by Chrome, Edge, Opera and Firefox */
 `;
 
-export const IconWrapper = styled.div`
-  padding: 2px;
-`;
-
 export const ContainerWrapper = styled.div`
   min-width: 5.75rem;
   min-height: 2.2rem;

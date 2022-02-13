@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 93%;
   margin-left: 3.5%;
   background: #5d7d88;
-  /* #374a51 */
+  /* #374a51 -- 5d7d88*/
   display: flex;
   justify-content: center;
   align-items: center;
