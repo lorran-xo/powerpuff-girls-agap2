@@ -1,12 +1,11 @@
 export default {
   colors: {
-    primary: '--blue-800',
-    secondary: '--neutral-800',
-    success: '--green-800',
-    error: '--red-1000',
-    warning: '--orange-800',
-    white: '--neutral-0',
-    text: '--neutral-800',
+    primary: '--neutral-300',
+    primaryHover: '--neutral-700',
+    secondary: '--pink-100',
+    secondaryHover: '--pink-300',
+    white: '--neutral-100',
+    text: '--neutral-0',
   },
   fontSize: {
     xxs: '.75rem',
@@ -19,10 +18,5 @@ export default {
     xlll: '3.5rem',
     xh: '5.5rem',
     xhh: '6.25rem',
-  },
-  zIndex: {
-    backdrop: 600,
-    modal: 800,
-    alert: 900,
   },
 };
