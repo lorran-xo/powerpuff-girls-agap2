@@ -10,8 +10,8 @@ export const Container = styled.div`
 `;
 
 export const SummaryText = styled.div`
-  color: #98959a;
-  font-size: 12px;
+  color: var(${({ theme }) => theme.colors.primaryHover});
+  font-size: ${({ theme }) => theme.fontSize.xs};
   width: 25%;
   padding: 5px;
 

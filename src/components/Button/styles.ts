@@ -9,27 +9,25 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   min-height: 2.2rem;
   padding: 0.5rem 1rem;
 
-  border: 1px solid;
   border-width: 1px;
   border-style: solid;
   border-color: #4d4f50;
   border-radius: 4px;
 
-  filter: unset;
-
   font-weight: bold;
-  transition: all 0.2s ease;
 
   ${(props) =>
     props.color === 'primary' &&
     css`
-      background-color: 'grey';
+      color: 'black';
+      background-color: ${({ theme }) => `var(${theme.colors.primary})`};
     `}
 
   ${(props) =>
     props.color === 'secondary' &&
     css`
-      background-color: #add8e6;
+      color: var(--neutral-0);
+      background-color: ${({ theme }) => `var(${theme.colors.secondary})`};
     `}
 
   &:hover {
@@ -39,6 +37,6 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
 
   &:active {
     background-color: ${(props) =>
-      props.color === 'primary' ? '#98959a' : '#247ed8'};
+      props.color === 'primary' ? 'var(--neutral-700)' : 'var(--pink-300)'};
   }
 `;

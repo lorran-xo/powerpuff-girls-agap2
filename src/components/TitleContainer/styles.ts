@@ -5,23 +5,29 @@ export interface ItemProps {
 }
 
 export const Container = styled.div`
+  display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-export const TitleWrapper = styled.div`
-  color: #4d4f50;
-  font-size: 16px;
-  width: 35%;
-  padding: 2px;
+export const TitleWrapper = styled.h2`
+  color: var(${({ theme }) => theme.colors.white});
+
+  font-size: ${({ theme }) => theme.fontSize.xll};
+  max-width: 50%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
 `;
 
-export const SubtitleWrapper = styled.div`
-  color: #98959a;
-  font-size: 12px;
-  width: 25%;
-  padding: 5px;
+export const SubtitleWrapper = styled.h3`
+  color: var(${({ theme }) => theme.colors.white});
+
+  font-size: ${({ theme }) => theme.fontSize.sm};
+  max-width: 60%;
+  margin-top: 20px;
+  font-weight: normal;
+  text-align: center;
 `;
