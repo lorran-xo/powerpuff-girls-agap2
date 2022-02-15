@@ -17,6 +17,10 @@ export const ItemWrapper = styled.span`
   padding: 3px;
   margin-left: 10px;
   margin-top: 5px;
+
+  &:hover {
+    filter: drop-shadow(0px 1px 1px rgb(255, 155, 157));
+  }
 `;
 
 export const OptionText = styled.span<ItemProps>`

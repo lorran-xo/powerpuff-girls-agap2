@@ -15,9 +15,6 @@ export const TitleWrapper = styled.h2`
 
   font-size: ${({ theme }) => theme.fontSize.xll};
   max-width: 50%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 `;
