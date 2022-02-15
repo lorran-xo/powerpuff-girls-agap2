@@ -19,15 +19,17 @@ export const TitleWrapper = styled.h2`
   font-family: Domine;
 `;
 
-export const SubtitleWrapper = styled.h3`
+export const SubtitleWrapper = styled.p`
   color: var(${({ theme }) => theme.colors.white});
   font-size: ${({ theme }) => theme.fontSize.sm};
 
-  max-width: 80%;
+  max-width: 70%;
   margin-top: 20px;
   font-weight: normal;
   text-align: center;
   font-style: oblique;
-  text-indent: 50px;
-  line-height: 1.3;
+  line-height: 1.6;
+
+  display: flex;
+  flex-direction: column;
 `;

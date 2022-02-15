@@ -12,24 +12,25 @@ import {
   Container,
   TableContainer,
   MainWrapper,
+  LoadingWrapper,
   CoverImageWrapper,
   ContentWrapper,
+  DescriptionContainer,
   TableWrapper,
-  TitleWrapper,
 } from './styles';
 
 const columns = [
   {
     field: 'number',
     headerName: 'Episode',
-    width: 90,
+    width: 100,
   },
 
   { field: 'season', headerName: 'Season', width: 90 },
   {
     field: 'name',
     headerName: 'Name',
-    width: 220,
+    width: 300,
     sortable: false,
   },
 
@@ -58,12 +59,12 @@ export default function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (tableData.length === 0) {
-      getEpisodeList();
+    if (!tableData.length && !tvShowData.length) {
+      getTvShowData();
     }
   }, [tableData]);
 
-  async function getEpisodeList() {
+  async function getTvShowData() {
     setIsLoading(true);
 
     try {
@@ -121,28 +122,28 @@ export default function Home() {
   return (
     <Container>
       {isLoading ? (
-        <MainWrapper>
+        <LoadingWrapper>
           <LoadingSpinner />
-        </MainWrapper>
+        </LoadingWrapper>
       ) : (
         <MainWrapper>
           <ContentWrapper>
-            <TitleWrapper>
-              <TitleContainer title={tvShowData.name} />
-            </TitleWrapper>
-
             <CoverImageWrapper>
               <img
                 alt="Logo"
-                width={260}
-                height={370}
+                width={280}
+                height={350}
                 src={PpgCoverImage}
                 style={{ borderRadius: '5%' }}
               />
             </CoverImageWrapper>
-            <TitleContainer subtitle={tvShowData.summary} />
+            <DescriptionContainer>
+              <TitleContainer
+                title={tvShowData.name}
+                subtitle={tvShowData.summary}
+              />
+            </DescriptionContainer>
           </ContentWrapper>
-
           <TableWrapper>{renderTable()}</TableWrapper>
         </MainWrapper>
       )}

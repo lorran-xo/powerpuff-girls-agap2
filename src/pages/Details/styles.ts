@@ -37,7 +37,13 @@ export const ContentWrapper = styled.div`
 
 export const DescriptionWrapper = styled.div``;
 
-export const LoadingWrapper = styled.div``;
+export const LoadingWrapper = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 200px;
+  text-align: center;
+`;
 
 export const ButtonWrapper = styled.div`
   display: flex;

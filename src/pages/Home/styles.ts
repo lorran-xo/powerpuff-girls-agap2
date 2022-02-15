@@ -8,19 +8,22 @@ export const Container = styled.div`
   border-radius: 2%;
 `;
 
-export const MainWrapper = styled.div`
-  display: flex;
-  align-items: flex-start;
-  margin: 9%;
+export const MainWrapper = styled.section`
+  margin: 7%;
 `;
 
-export const TitleWrapper = styled.div`
-  margin-top: -10%;
+export const LoadingWrapper = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 200px;
+  text-align: center;
 `;
 
 export const CoverImageWrapper = styled.div`
-  display: flex;
-  align-items: flex-start;
+  max-width: 30%;
+  padding-left: 7%;
+
   margin: 2%;
 
   cursor: pointer;
@@ -32,16 +35,20 @@ export const CoverImageWrapper = styled.div`
 
 export const ContentWrapper = styled.div`
   display: flex;
-
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
 `;
 
 export const TableContainer = styled.div`
   height: 400px;
-  width: 615px;
+  width: 750px;
 `;
 
 export const TableWrapper = styled.div`
-  margin: 2%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+`;
+
+export const DescriptionContainer = styled.p`
+  padding: 15px;
 `;

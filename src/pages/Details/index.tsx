@@ -31,8 +31,8 @@ export default function Home() {
 
   return (
     <Container>
-      <MainWrapper>
-        {episodeData ? (
+      {episodeData ? (
+        <MainWrapper>
           <ContentWrapper>
             <TitleWrapper>
               <TitleContainer title="Total Eclipse Of The Kart, Parts 1 and 2" />
@@ -41,8 +41,8 @@ export default function Home() {
             <CoverImageWrapper>
               <img
                 alt="Logo"
-                width={260}
-                height={370}
+                width={280}
+                height={350}
                 src={PpgCoverImage}
                 style={{ borderRadius: '5%' }}
               />
@@ -59,12 +59,12 @@ export default function Home() {
               </ButtonWrapper>
             </DescriptionWrapper>
           </ContentWrapper>
-        ) : (
-          <LoadingWrapper>
-            <LoadingSpinner />
-          </LoadingWrapper>
-        )}
-      </MainWrapper>
+        </MainWrapper>
+      ) : (
+        <LoadingWrapper>
+          <LoadingSpinner />
+        </LoadingWrapper>
+      )}
     </Container>
   );
 }
