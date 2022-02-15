@@ -26,7 +26,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   ${(props) =>
     props.color === 'secondary' &&
     css`
-      color: var(--neutral-0);
+      color: var(--neutral-900);
       background-color: ${({ theme }) => `var(${theme.colors.secondary})`};
     `}
 

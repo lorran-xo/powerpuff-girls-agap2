@@ -10,7 +10,7 @@ export function SummaryContainer({ episodeSummary }: NavProps) {
       {episodeSummary ? ( // Verify if there is an episode summary. If there's not, render a no data warning.
         <SummaryText>{episodeSummary}</SummaryText>
       ) : (
-        <SummaryText> No data</SummaryText>
+        <SummaryText> There is no data for this episode</SummaryText>
       )}
     </Container>
   );

@@ -9,12 +9,11 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const SummaryText = styled.div`
-  color: var(${({ theme }) => theme.colors.primaryHover});
-  font-size: ${({ theme }) => theme.fontSize.xs};
-  width: 25%;
-  padding: 5px;
+export const SummaryText = styled.h3`
+  color: var(${({ theme }) => theme.colors.white});
 
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: ${({ theme }) => theme.fontSize.sm};
+  font-weight: normal;
+  text-align: flex-start;
+  font-style: oblique;
 `;
