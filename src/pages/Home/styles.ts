@@ -2,20 +2,28 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  height: 85vh;
+  /* height: 85vh; */
   width: 93%;
-  margin-left: 3.5%;
-  background-color: #5d7d88;
+  margin-left: 4%;
+  background-color: #3d525a;
+  border-radius: 2%;
+  padding: 15px;
 `;
 
-export const TitleWrapper = styled.div`
+export const MainWrapper = styled.div`
   display: flex;
   align-items: flex-start;
   margin: 10%;
 `;
 
+export const TitleWrapper = styled.div`
+  margin-top: -10%;
+  /* margin-right: 10%; */
+`;
+
 export const CoverImageWrapper = styled.div`
-  align-items: flex-end;
+  display: flex;
+  align-items: flex-start;
 
   cursor: pointer;
 
@@ -24,9 +32,18 @@ export const CoverImageWrapper = styled.div`
   }
 `;
 
-export const ButtonWrapper = styled.div`
-  /* background: yellow; */
-  /* padding: 20px; */
+export const ContentWrapper = styled.div`
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
 `;
 
-export const TableWrapper = styled.div``;
+export const TableContainer = styled.div`
+  height: 400px;
+  width: 615px;
+`;
+
+export const TableWrapper = styled.div`
+  margin: 2%;
+`;
