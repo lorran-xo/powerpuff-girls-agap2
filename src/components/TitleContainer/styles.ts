@@ -10,7 +10,7 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const TitleWrapper = styled.h2`
+export const TitleWrapper = styled.span`
   color: var(${({ theme }) => theme.colors.white});
 
   font-size: ${({ theme }) => theme.fontSize.xll};
@@ -19,7 +19,7 @@ export const TitleWrapper = styled.h2`
   font-family: Domine;
 `;
 
-export const SubtitleWrapper = styled.p`
+export const SubtitleWrapper = styled.span`
   color: var(${({ theme }) => theme.colors.white});
   font-size: ${({ theme }) => theme.fontSize.sm};
 

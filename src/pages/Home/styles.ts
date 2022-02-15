@@ -49,6 +49,6 @@ export const TableWrapper = styled.div`
   margin-top: 20px;
 `;
 
-export const DescriptionContainer = styled.p`
+export const DescriptionContainer = styled.span`
   padding: 15px;
 `;
