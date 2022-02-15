@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const MainWrapper = styled.div`
   display: flex;
   align-items: flex-start;
-  margin: 10%;
+  margin: 9%;
 `;
 
 export const TitleWrapper = styled.div`

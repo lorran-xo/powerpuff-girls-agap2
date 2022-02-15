@@ -5,6 +5,7 @@ export default {
     secondary: '--pink-100',
     secondaryHover: '--pink-300',
     white: '--neutral-100',
+    dark: '--neutral-900',
     text: '--neutral-0',
   },
   fontSize: {

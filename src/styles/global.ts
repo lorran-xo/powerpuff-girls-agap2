@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     --pink-300: #E28888;
     --pink-100: #ff9b9d;
 
+    --neutral-900: #333333;
     --neutral-700: #98959a;
     --neutral-300: #d3d3d3;
     --neutral-100: #E8E8E8;
@@ -42,6 +43,16 @@ export const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  img {
+    transition: transform 0.25s ease;
+  }
+
+  img:active {
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+
   
   &::-webkit-scrollbar {
     width: 9px;

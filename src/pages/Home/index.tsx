@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import { TitleContainer } from '../../components/TitleContainer';
-import { TableCustomStyles } from './TableOverrideStyles';
 import LoadingSpinner from '../../components/LoadingSpinner';
-// import { Button } from '../../components/Button';
+import { TableCustomStyles } from './TableOverrideStyles';
 import PpgCoverImage from '../../assets/ppg-cover-image.jpg';
 
 import {
@@ -20,79 +20,80 @@ import {
 
 const columns = [
   {
-    field: 'id',
-    headerName: 'Number',
-    width: 100,
-    // headerAlign: 'center',
+    field: 'number',
+    headerName: 'Episode',
+    width: 90,
+  },
+
+  { field: 'season', headerName: 'Season', width: 90 },
+  {
+    field: 'name',
+    headerName: 'Name',
+    width: 220,
     sortable: false,
   },
-  { field: 'episode', headerName: 'Episode', width: 100, sortable: false },
+
   {
-    field: 'date',
-    headerName: 'Date',
+    field: 'airdate',
+    headerName: 'Air date',
     width: 200,
-    sortable: false,
-  },
-  { field: 'name', headerName: 'Name', width: 200, sortable: false },
-];
-
-const ppgEpisodes = [
-  {
-    id: '5',
-    numero: '53',
-    data: '02/01/2005',
-    nome: 'Sideline Dad',
-  },
-  {
-    id: '4',
-    numero: '53',
-    data: '02/01/2005',
-    nome: 'Sideline Dad',
-  },
-  {
-    id: '3',
-    numero: '53',
-    data: '02/01/2005',
-    nome: 'Sideline Dad',
-  },
-  {
-    id: '2',
-    numero: '54',
-    data: '11/02/2005',
-    nome: 'The Oct-father',
-  },
-  {
-    id: '1',
-    numero: '55',
-    data: '16/31/2003',
-    nome: 'Drama Bomb',
   },
 ];
 
-// type EpisodeProp = {
-//   id: string;
-//   episode: string;
-//   date: string;
-//   name: string;
-// };
+type EpisodeProp = {
+  id: number;
+  image: { medium: string };
+  name: string;
+  season: number;
+  number: number;
+  airdate: string;
+  summary: string;
+};
 
 export default function Home() {
   const [tableData, setTableData] = useState<any>([]);
+  const [tvShowData, setTvShowData] = useState<any>([]);
+  const [isLoading, setIsLoading] = useState<any>(false);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const teste = ppgEpisodes.map((item) => {
-      return {
-        id: item.id,
-        episode: item.numero,
-        date: item.data,
-        name: item.nome,
-      };
-    });
+    if (tableData.length === 0) {
+      getEpisodeList();
+    }
+  }, [tableData]);
 
-    setTableData(teste);
-  }, []);
+  async function getEpisodeList() {
+    setIsLoading(true);
+
+    try {
+      const [tvShowResponse, episodeResponse] = await axios.all([
+        axios.get('https://api.tvmaze.com/shows/6771'),
+        axios.get('https://api.tvmaze.com/shows/6771/episodes'),
+      ]);
+
+      const reducedEpisodesData = episodeResponse.data.map(
+        (item: EpisodeProp) => {
+          return {
+            id: item.id,
+            // image: item.image,
+            name: item.name,
+            season: item.season,
+            number: item.number,
+            airdate: item.airdate,
+            // summary: item.summary,
+          };
+        },
+      );
+
+      setTvShowData(tvShowResponse.data);
+      setTableData(reducedEpisodesData);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   function renderTable() {
     return (
@@ -101,10 +102,11 @@ export default function Home() {
           rows={tableData}
           columns={columns}
           onRowClick={(params) => {
-            // navigate('/details');
+            navigate('/details');
             console.log(`id:: ${params.row.id}`);
           }}
           pageSize={5}
+          rowsPerPageOptions={[5]}
           sx={TableCustomStyles}
           density="comfortable"
           disableSelectionOnClick
@@ -118,30 +120,32 @@ export default function Home() {
 
   return (
     <Container>
-      <MainWrapper>
-        <ContentWrapper>
-          <TitleWrapper>
-            <TitleContainer
-              title="Powerpuff Girls"
-              subtitle="The Powerpuff Girls is an American superhero animated television series created by animator Craig McCracky."
-            />
-          </TitleWrapper>
+      {isLoading ? (
+        <MainWrapper>
+          <LoadingSpinner />
+        </MainWrapper>
+      ) : (
+        <MainWrapper>
+          <ContentWrapper>
+            <TitleWrapper>
+              <TitleContainer title={tvShowData.name} />
+            </TitleWrapper>
 
-          <CoverImageWrapper>
-            <img
-              alt="Logo"
-              width={260}
-              height={370}
-              src={PpgCoverImage}
-              style={{ borderRadius: '5%' }}
-            />
-          </CoverImageWrapper>
-        </ContentWrapper>
+            <CoverImageWrapper>
+              <img
+                alt="Logo"
+                width={260}
+                height={370}
+                src={PpgCoverImage}
+                style={{ borderRadius: '5%' }}
+              />
+            </CoverImageWrapper>
+            <TitleContainer subtitle={tvShowData.summary} />
+          </ContentWrapper>
 
-        <TableWrapper>
-          {tableData ? renderTable() : <LoadingSpinner />}
-        </TableWrapper>
-      </MainWrapper>
+          <TableWrapper>{renderTable()}</TableWrapper>
+        </MainWrapper>
+      )}
     </Container>
   );
 }
