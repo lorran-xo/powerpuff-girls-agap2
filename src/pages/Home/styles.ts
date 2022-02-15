@@ -2,12 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  /* height: 85vh; */
   width: 93%;
   margin-left: 4%;
   background-color: #3d525a;
   border-radius: 2%;
-  padding: 15px;
 `;
 
 export const MainWrapper = styled.div`
@@ -18,12 +16,12 @@ export const MainWrapper = styled.div`
 
 export const TitleWrapper = styled.div`
   margin-top: -10%;
-  /* margin-right: 10%; */
 `;
 
 export const CoverImageWrapper = styled.div`
   display: flex;
   align-items: flex-start;
+  margin: 2%;
 
   cursor: pointer;
 

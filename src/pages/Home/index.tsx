@@ -119,16 +119,6 @@ export default function Home() {
   return (
     <Container>
       <MainWrapper>
-        <CoverImageWrapper>
-          <img
-            alt="Logo"
-            width={260}
-            height={370}
-            src={PpgCoverImage}
-            style={{ borderRadius: '5%' }}
-          />
-        </CoverImageWrapper>
-
         <ContentWrapper>
           <TitleWrapper>
             <TitleContainer
@@ -137,10 +127,20 @@ export default function Home() {
             />
           </TitleWrapper>
 
-          <TableWrapper>
-            {tableData ? renderTable() : <LoadingSpinner />}
-          </TableWrapper>
+          <CoverImageWrapper>
+            <img
+              alt="Logo"
+              width={260}
+              height={370}
+              src={PpgCoverImage}
+              style={{ borderRadius: '5%' }}
+            />
+          </CoverImageWrapper>
         </ContentWrapper>
+
+        <TableWrapper>
+          {tableData ? renderTable() : <LoadingSpinner />}
+        </TableWrapper>
       </MainWrapper>
     </Container>
   );
