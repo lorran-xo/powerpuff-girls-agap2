@@ -63,6 +63,8 @@ export default function Home() {
 
   useEffect(() => {
     if (!appContext?.tableData || !appContext?.headerData) {
+      // Once the data are loaded and persistent on LocalStorage and Context,
+      // it will only call the breakpoints again if the user loses it by cleaning localStorage / Context
       setIsLoading(true);
       getTvShowData();
     }
@@ -99,7 +101,7 @@ export default function Home() {
         },
       });
     } catch (error) {
-      console.log(error);
+      console.log('An error ocurred', error);
     } finally {
       setIsLoading(false);
     }

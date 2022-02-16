@@ -27,7 +27,7 @@ export default function Details() {
 
   return (
     <Container>
-      {appContext.clickedEpisodeData ? (
+      {appContext?.clickedEpisodeData ? (
         <MainWrapper>
           <ContentWrapper>
             <TitleWrapper>
