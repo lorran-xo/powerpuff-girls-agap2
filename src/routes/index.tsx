@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home';
 import About from '../pages/About';
 import Details from '../pages/Details';
-import { MyProvider } from '../Context';
+import { MyProvider } from '../context';
 
 export default function MainRoutes() {
   return (
