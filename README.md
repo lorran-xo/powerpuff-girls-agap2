@@ -15,7 +15,7 @@ This application runs the most recent technologies, combined with the use of Rea
   - Unit tests
   - react-router-dom v6
   - react-hooks
-  - Persistent non-redundant data-flow / context
+  - Persistent non-redundant data-flow with LocalStorage and Context
   - Used dependencies:
     - axios
     - MUI datatable and its dependencies (@mui/x-data-grid)
