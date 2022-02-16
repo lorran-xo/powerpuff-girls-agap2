@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 93%;
   margin-left: 4%;
   background-color: #3d525a;
-  border-radius: 2%;
+  border-radius: 1%;
 `;
 
 export const MainWrapper = styled.div`
@@ -35,7 +35,9 @@ export const ContentWrapper = styled.div`
   align-items: center;
 `;
 
-export const DescriptionWrapper = styled.div``;
+export const DescriptionWrapper = styled.div`
+  width: 40%;
+`;
 
 export const LoadingWrapper = styled.div`
   margin-left: auto;

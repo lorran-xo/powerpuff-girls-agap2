@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { TitleContainer } from '../../components/TitleContainer';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { Button } from '../../components/Button';
 import { SummaryContainer } from '../../components/SummaryContainer';
-
 import PpgCoverImage from '../../assets/ppg-cover-image.jpg';
+import { getContext } from '../../context';
 
 import {
   Container,
@@ -19,23 +18,20 @@ import {
   ButtonWrapper,
 } from './styles';
 
-export default function Home() {
-  const [episodeData, setEpisodeData] = useState<any>([]);
-
+export default function Details() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setEpisodeData([1]);
-    console.log(episodeData);
-  }, []);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const { appContext } = getContext();
 
   return (
     <Container>
-      {episodeData ? (
+      {appContext.clickedEpisodeData ? (
         <MainWrapper>
           <ContentWrapper>
             <TitleWrapper>
-              <TitleContainer title="Total Eclipse Of The Kart, Parts 1 and 2" />
+              <TitleContainer title={appContext?.clickedEpisodeData?.name} />
             </TitleWrapper>
 
             <CoverImageWrapper>
@@ -43,12 +39,18 @@ export default function Home() {
                 alt="Logo"
                 width={280}
                 height={350}
-                src={PpgCoverImage}
+                src={
+                  appContext?.clickedEpisodeData?.image
+                    ? appContext?.clickedEpisodeData?.image
+                    : PpgCoverImage
+                }
                 style={{ borderRadius: '5%' }}
               />
             </CoverImageWrapper>
             <DescriptionWrapper>
-              <SummaryContainer episodeSummary="When Buttercup loses the Professor's latest invention, she'll have to beat The Gangreen Gang at their own game to get it back." />
+              <SummaryContainer
+                episodeSummary={appContext?.clickedEpisodeData?.summary}
+              />
 
               <ButtonWrapper>
                 <Button
