@@ -1,46 +1,51 @@
-# Getting Started with Create React App
+## About ##
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a small web application for the TV Show "Powerpuff Girls". All the data is retrieved using the TV Maze REST API - [https://www.tvmaze.com/api](https://www.tvmaze.com/api).
 
-## Available Scripts
+## Technologies ##
 
-In the project directory, you can run:
+This application runs the most recent technologies, combined with the use of React community best practices and clean code with extendable structure and reusable components. The main technologies used in this project are:
 
-### `yarn start`
+  - ReactJS
+  - TypeScript
+  - Styled Components
+  - ESlint / Prettier
+  - Husky
+  - Commit lint
+  - Unit tests
+  - react-router-dom v6
+  - react-hooks
+  - Persistent non-redundant data-flow / context
+  - Used dependencies:
+    - axios
+    - MUI datatable and its dependencies (@mui/x-data-grid)
+    - js-cookie and its dependencices (js-cookie)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Requirements ##
 
-### `yarn test`
+Before starting, you should have Node, NPM/Yarn and Git installed.
+
+## Getting Started ##
+
+To run this project, clone this repository, go in the project root directory and run these two commands:
+
+ - ## `yarn install` or `npm install`
+ - ## `yarn start` or `npm start`
+
+It will run the app in the development mode on [http://localhost:3000](http://localhost:3000) in your the browser.
+
+## Run the tests ##
+
+To run this project component unit tests, run this command:
+
+### `yarn test -`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+&#xa0;
+
+Made by <a href="https://github.com/lorran-xo" target="_blank">Lorran Oliveira</a>
