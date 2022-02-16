@@ -14,9 +14,6 @@ import {
 } from './styles';
 
 export default function About() {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-
   return (
     <Container>
       <MainWrapper>

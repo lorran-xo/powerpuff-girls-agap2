@@ -31,7 +31,10 @@ export function NavBar({
 
   return (
     <Container data-testid="navbar-comp">
-      <ItemWrapper onClick={() => handleOptionOne()}>
+      <ItemWrapper
+        data-testid="navbar-comp-1"
+        onClick={() => handleOptionOne()}
+      >
         <OptionText selected={selectedOption === 1}>
           {titleOptionOne}
         </OptionText>
