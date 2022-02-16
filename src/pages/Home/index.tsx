@@ -7,6 +7,7 @@ import { TitleContainer } from '../../components/TitleContainer';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { TableCustomStyles } from './TableOverrideStyles';
 import PpgCoverImage from '../../assets/ppg-cover-image.jpg';
+import { getContext } from '../../context';
 
 import {
   Container,
@@ -52,21 +53,22 @@ type EpisodeProp = {
 };
 
 export default function Home() {
-  const [tableData, setTableData] = useState<any>([]);
-  const [tvShowData, setTvShowData] = useState<any>([]);
-  const [isLoading, setIsLoading] = useState<any>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const { appContext, setAppContext } = getContext();
+
   useEffect(() => {
-    if (!tableData.length && !tvShowData.length) {
+    if (!appContext?.tableData || !appContext?.headerData) {
+      setIsLoading(true);
       getTvShowData();
     }
-  }, [tableData]);
+  }, []);
 
   async function getTvShowData() {
-    setIsLoading(true);
-
     try {
       const [tvShowResponse, episodeResponse] = await axios.all([
         axios.get('https://api.tvmaze.com/shows/6771'),
@@ -74,21 +76,28 @@ export default function Home() {
       ]);
 
       const reducedEpisodesData = episodeResponse.data.map(
-        (item: EpisodeProp) => {
+        (item: EpisodeProp, index: number) => {
           return {
-            id: item.id,
-            // image: item.image,
+            id: index,
+            idEpisode: item.id,
+            image: item.image ? item.image.medium : null,
             name: item.name,
             season: item.season,
             number: item.number,
             airdate: item.airdate,
-            // summary: item.summary,
+            summary: item.summary,
           };
         },
       );
 
-      setTvShowData(tvShowResponse.data);
-      setTableData(reducedEpisodesData);
+      setAppContext({
+        headerData: {
+          ...tvShowResponse.data,
+        },
+        tableData: {
+          reducedEpisodesData,
+        },
+      });
     } catch (error) {
       console.log(error);
     } finally {
@@ -100,11 +109,16 @@ export default function Home() {
     return (
       <TableContainer>
         <DataGrid
-          rows={tableData}
+          rows={appContext?.tableData?.reducedEpisodesData || []}
           columns={columns}
-          onRowClick={(params) => {
+          onRowClick={(param) => {
+            setAppContext({
+              ...appContext,
+              clickedEpisodeData: {
+                ...appContext.tableData.reducedEpisodesData[param.row.id],
+              },
+            });
             navigate('/details');
-            console.log(`id:: ${params.row.id}`);
           }}
           pageSize={5}
           rowsPerPageOptions={[5]}
@@ -133,14 +147,18 @@ export default function Home() {
                 alt="Logo"
                 width={280}
                 height={350}
-                src={PpgCoverImage}
+                src={
+                  appContext?.headerData?.image
+                    ? appContext.headerData.image.medium
+                    : PpgCoverImage
+                }
                 style={{ borderRadius: '5%' }}
               />
             </CoverImageWrapper>
             <DescriptionContainer>
               <TitleContainer
-                title={tvShowData.name}
-                subtitle={tvShowData.summary}
+                title={appContext?.headerData?.name}
+                subtitle={appContext?.headerData?.summary}
               />
             </DescriptionContainer>
           </ContentWrapper>

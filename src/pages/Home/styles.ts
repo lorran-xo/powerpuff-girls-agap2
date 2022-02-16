@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 93%;
   margin-left: 4%;
   background-color: #3d525a;
-  border-radius: 2%;
+  border-radius: 1%;
 `;
 
 export const MainWrapper = styled.section`

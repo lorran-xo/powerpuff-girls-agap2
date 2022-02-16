@@ -8,7 +8,11 @@ interface NavProps {
 export function TitleContainer({ title, subtitle }: NavProps) {
   return (
     <Container data-testid="title-container-comp">
-      <TitleWrapper>{title}</TitleWrapper>
+      {title ? (
+        <TitleWrapper>{title}</TitleWrapper>
+      ) : (
+        <TitleWrapper>There is no data for this episode</TitleWrapper>
+      )}
 
       <SubtitleWrapper>
         {/* regex that removes any tags on the string */}

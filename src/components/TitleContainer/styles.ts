@@ -7,16 +7,21 @@ export interface ItemProps {
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+
+  max-width: 80%;
+
   align-items: center;
 `;
 
 export const TitleWrapper = styled.span`
   color: var(${({ theme }) => theme.colors.white});
-
   font-size: ${({ theme }) => theme.fontSize.xll};
-  max-width: 50%;
   font-weight: bold;
   font-family: Domine;
+
+  max-width: 70%;
+
+  margin: 20px;
 `;
 
 export const SubtitleWrapper = styled.span`
