@@ -9,6 +9,7 @@ This application runs the most recent technologies, combined with the use of Rea
   - ReactJS
   - TypeScript
   - Styled Components
+  - Global Styles
   - ESlint / Prettier
   - Husky
   - Commit lint
